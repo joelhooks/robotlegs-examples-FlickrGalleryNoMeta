@@ -15,14 +15,15 @@
 			   xmlns:mx="library://ns.adobe.com/flex/halo"
 			   xmlns:imagegallery="org.robotlegs.demos.imagegallery.*"
 			   xmlns:components="org.robotlegs.demos.imagegallery.views.components.*"
-			   maxWidth="520"
-			   viewSourceURL="http://github.com/joelhooks/robotlegs-examples-FlickrGalleryNoMeta">
+			   width="700" height="700" maxWidth="700" maxHeight="700"
+               viewSourceURL="http://github.com/joelhooks/robotlegs-examples-FlickrGalleryNoMeta">
 
 	<s:layout>
 		<s:VerticalLayout paddingBottom="10"
 						  paddingLeft="10"
 						  paddingRight="10"
-						  paddingTop="10"/>
+						  paddingTop="10"
+                          horizontalAlign="center"/>
 	</s:layout>
 
 	<fx:Declarations>
@@ -32,7 +33,6 @@
 	<components:GalleryHeader/>
 	
 	<components:GallerySearch id="search"
-							  width="100%"
 							  visible="false"
 							  includeInLayout="false"/>
 	

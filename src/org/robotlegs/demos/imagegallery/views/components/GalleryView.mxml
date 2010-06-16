@@ -14,8 +14,10 @@
 	xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/mx" 
-	width="500" height="600" 
-	creationComplete="creationCompleteHandler(event)" xmlns:display="com.joelhooks.display.*" xmlns:components="org.robotlegs.demos.imagegallery.views.components.*">
+	width="680" height="600" 
+	creationComplete="creationCompleteHandler(event)"
+    xmlns:display="com.joelhooks.display.*"
+    xmlns:components="org.robotlegs.demos.imagegallery.views.components.*">
 	
 	<s:layout>
 		<s:BasicLayout/>
@@ -97,14 +99,14 @@
 		<s:DataGroup 
 			id="dgThumbnails"
 			clipAndEnableScrolling="true" dataProvider="{this.dataProvider}"
-			width="500"  
+			width="100%"  
 			height="85" mouseEnabled="{!image.changingImages}" mouseChildren="{!image.changingImages}" 
 			itemRenderer="org.robotlegs.demos.imagegallery.views.components.renderers.GalleryImageThumbnailItemRenderer">
 			<s:layout>
 				<s:HorizontalLayout gap="0"/>
 			</s:layout>
 		</s:DataGroup>
-		<s:HScrollBar id="thumbScrollBar" viewport="{this.dgThumbnails}" width="500" smoothScrolling="true"/>		
+		<s:HScrollBar id="thumbScrollBar" viewport="{this.dgThumbnails}" width="100%" smoothScrolling="true"/>		
 	</s:Group>
 	<components:GalleryLabel id="galleryLabel" color="#FFFFFF" top="5" right="5" visible="false" includeInLayout="false" />
 	<s:Label fontSize="9" text="all images © their owner" width="100%" textAlign="right" bottom="100" color="#FFFFFF" paddingRight="5"/>

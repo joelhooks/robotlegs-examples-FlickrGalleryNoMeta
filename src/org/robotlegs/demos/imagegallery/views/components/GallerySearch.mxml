@@ -10,9 +10,12 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 -->
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx">
+<s:Group 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" width="700">
 	<s:layout>
-		<s:HorizontalLayout/>
+		<s:HorizontalLayout horizontalAlign="right"/>
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
@@ -31,7 +34,6 @@
             }
 		]]>
 	</fx:Script>
-	<mx:Spacer width="100%"/>
 	<s:TextInput id="searchTermInput" enter="handleSearch()"/>
 	<s:Button id="submitSearchButton" label="search" enabled="{this.searchTermInput.text.length &gt; 3}" click="handleSearch()"/>
 </s:Group>
