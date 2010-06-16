@@ -20,31 +20,31 @@ package org.robotlegs.demos.imagegallery.views.mediators
 
 	public class GalleryViewMediator extends Mediator
 	{
-		private var galleryView:GalleryView;
+		private var view:GalleryView;
 
         public function GalleryViewMediator(galleryView:GalleryView)
         {
-            this.galleryView = galleryView;
+            view = galleryView;
         }
 
         override public function onRegister():void
 		{
-			eventMap.mapListener( galleryView, GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected )
-			eventMap.mapListener( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )
-			eventMap.mapListener( eventDispatcher, GallerySearchEvent.SEARCH, onSearch);
+			addViewListener(GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected );
+			addContextListener(GalleryEvent.GALLERY_LOADED, onGalleryLoaded );
+			addContextListener(GallerySearchEvent.SEARCH, onSearch);
 			
-			eventDispatcher.dispatchEvent( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
+			dispatch( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
 		}
 		
 		protected function selectImage(image:GalleryImage):void
 		{
-			galleryView.imageSource = image.URL;
-			eventDispatcher.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
+			view.imageSource = image.URL;
+			dispatch(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
 		}
 		
 		protected function onGalleryLoaded(event:GalleryEvent):void
 		{
-			galleryView.dataProvider = event.gallery.photos;
+			view.dataProvider = event.gallery.photos;
 			selectImage( event.gallery.photos[0] as GalleryImage );
 		}
 		
@@ -55,7 +55,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		
 		protected function onSearch(event:GallerySearchEvent):void
 		{
-			this.galleryView.setThumbScrollPosition(0);
+			this.view.setThumbScrollPosition(0);
 		}
 	}
 }

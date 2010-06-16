@@ -19,32 +19,32 @@ package org.robotlegs.demos.imagegallery.views.mediators
 
 	public class GalleryLabelMediator extends Mediator implements IMediator
 	{
-		private var galleryLabel:GalleryLabel;
+		private var view:GalleryLabel;
 
 		private var service:IGalleryImageService;
 
         public function GalleryLabelMediator(galleryLabel:GalleryLabel, service:IGalleryImageService)
         {
-            this.galleryLabel = galleryLabel;
+            view = galleryLabel;
             this.service = service;
         }
 
         override public function onRegister():void
 		{
-			this.galleryLabel.text = "interestingness";
-			eventMap.mapListener( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
-			
-			galleryLabel.visible = galleryLabel.includeInLayout = service.searchAvailable;
+            addContextListener(GallerySearchEvent.SEARCH, handleSearch );
+
+            view.text = "interestingness";
+			view.setVisibility(service.searchAvailable);
 		}
 		
 		protected function setLabelText(value:String):void
 		{
-			this.galleryLabel.text = value;
+			view.text = value;
 		}
 		
 		protected function handleSearch(event:GallerySearchEvent):void
 		{
-			this.setLabelText(event.searchTerm); 
+			setLabelText(event.searchTerm);
 		}
 	}
 }

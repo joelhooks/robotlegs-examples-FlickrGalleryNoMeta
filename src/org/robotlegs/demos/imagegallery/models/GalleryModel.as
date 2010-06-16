@@ -13,15 +13,10 @@ package org.robotlegs.demos.imagegallery.models
 {
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
-	import org.robotlegs.mvcs.*;
 
-	public class GalleryModel extends Actor
+	public class GalleryModel
 	{
 		private var _gallery:Gallery;
-		
-		public function GalleryModel()
-		{
-		}
 		
 		public function get gallery():Gallery
 		{

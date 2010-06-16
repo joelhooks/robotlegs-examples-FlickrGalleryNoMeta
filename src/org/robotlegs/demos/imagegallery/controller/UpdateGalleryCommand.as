@@ -2,9 +2,8 @@ package org.robotlegs.demos.imagegallery.controller
 {
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.models.GalleryModel;
-	import org.robotlegs.mvcs.Command;
 
-	public class UpdateGalleryCommand extends Command
+	public class UpdateGalleryCommand
 	{
 		private var event:GalleryEvent;
 		
@@ -16,7 +15,7 @@ package org.robotlegs.demos.imagegallery.controller
             this.galleryModel = galleryModel;
         }
 
-        override public function execute():void
+        public function execute():void
 		{			
 			this.galleryModel.gallery = event.gallery;
 		}

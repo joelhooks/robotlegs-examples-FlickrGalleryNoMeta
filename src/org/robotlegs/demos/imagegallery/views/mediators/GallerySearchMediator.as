@@ -19,26 +19,21 @@ package org.robotlegs.demos.imagegallery.views.mediators
 
 	public class GallerySearchMediator extends Mediator implements IMediator
 	{
-		private var gallerySearch:GallerySearch;
+		private var view:GallerySearch;
 
 		private var service:IGalleryImageService;
 
         public function GallerySearchMediator(gallerySearch:GallerySearch, service:IGalleryImageService)
         {
-            this.gallerySearch = gallerySearch;
+            this.view = gallerySearch;
             this.service = service;
         }
 
         override public function onRegister():void
 		{
-			eventMap.mapListener( gallerySearch, GallerySearchEvent.SEARCH, handleSearch );
+            addViewListener(GallerySearchEvent.SEARCH, dispatch);
 			
-			gallerySearch.visible = gallerySearch.includeInLayout = service.searchAvailable;
-		}
-		
-		protected function handleSearch(event:GallerySearchEvent):void
-		{
-			eventDispatcher.dispatchEvent( event );
+			view.setVisibility(service.searchAvailable);
 		}
 	}
 }

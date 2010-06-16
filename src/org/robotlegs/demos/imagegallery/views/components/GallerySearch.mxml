@@ -24,7 +24,11 @@
 				this.searchTermInput.text = "";
 				this.searchTermInput.validateNow();
 			}
-
+            
+            public function setVisibility(visible:Boolean):void
+            {
+                this.visible = includeInLayout = visible;
+            }
 		]]>
 	</fx:Script>
 	<mx:Spacer width="100%"/>

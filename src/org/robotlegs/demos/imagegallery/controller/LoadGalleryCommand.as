@@ -4,7 +4,7 @@ package org.robotlegs.demos.imagegallery.controller
 	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.mvcs.Command;
 
-	public class LoadGalleryCommand extends Command
+	public class LoadGalleryCommand
 	{
 		public var event:GalleryEvent;
 		
@@ -16,7 +16,7 @@ package org.robotlegs.demos.imagegallery.controller
             this.service = service;
         }
 
-        override public function execute():void
+        public function execute():void
 		{
 			service.loadGallery();
 		}

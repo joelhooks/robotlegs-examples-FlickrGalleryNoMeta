@@ -17,8 +17,10 @@ package org.robotlegs.demos.imagegallery
 	import org.robotlegs.demos.imagegallery.events.*;
 	import org.robotlegs.demos.imagegallery.models.GalleryModel;
 	import org.robotlegs.demos.imagegallery.remote.services.*;
-	import org.robotlegs.demos.imagegallery.views.components.*;
+    import org.robotlegs.demos.imagegallery.remote.services.adapters.*;
+    import org.robotlegs.demos.imagegallery.views.components.*;
 	import org.robotlegs.demos.imagegallery.views.mediators.*;
+
 	import org.robotlegs.mvcs.Context;
 
 	public class ImageGalleryContext extends Context
@@ -42,6 +44,10 @@ package org.robotlegs.demos.imagegallery
 			//map service
 			injector.mapSingletonOf( IGalleryImageService, FlickrImageService );
 			//injector.mapSingletonOf( IGalleryImageService, XMLImageService );
+
+            //map external service adapter
+            injector.mapSingletonOf( IServiceAdapter, FlickrLibAdapter );
+            //injector.mapSingletonOf( IServiceAdapter, XMLAdapter );
 			
 			//map view
 			mediatorMap.mapView(GalleryView, GalleryViewMediator);

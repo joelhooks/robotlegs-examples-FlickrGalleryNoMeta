@@ -2,9 +2,8 @@ package org.robotlegs.demos.imagegallery.controller
 {
 	import org.robotlegs.demos.imagegallery.events.GalleryImageEvent;
 	import org.robotlegs.demos.imagegallery.models.GalleryModel;
-	import org.robotlegs.mvcs.Command;
 
-	public class SetSelectedImageCommand extends Command
+	public class SetSelectedImageCommand
 	{
 		private var event:GalleryImageEvent;
 		
@@ -16,7 +15,7 @@ package org.robotlegs.demos.imagegallery.controller
             this.proxy = proxy;
         }
 
-        override public function execute():void
+        public function execute():void
 		{
 			if(event.image)
 				proxy.setSelectedImage(event.image);
