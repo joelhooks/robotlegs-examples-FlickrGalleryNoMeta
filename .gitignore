@@ -1,0 +1,15 @@
+.settings/*
+bin-debug/*
+bin-release/*
+html-template/*
+Thumbs.db
+.DS_Store
+*/.svn/*
+.metadata/*
+*/web/*
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.FlexUnitSettings
+.as3_classpath
+.project
