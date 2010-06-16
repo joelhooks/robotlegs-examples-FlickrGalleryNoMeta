@@ -1,8 +1,8 @@
 package org.robotlegs.demos.imagegallery.remote.services.adapters
 {
-import flash.events.IEventDispatcher;
+    import flash.events.IEventDispatcher;
 
-import mx.rpc.AsyncToken;
+    import mx.rpc.AsyncToken;
     import mx.rpc.Responder;
     import mx.rpc.http.HTTPService;
 
